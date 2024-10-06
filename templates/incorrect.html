@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Incorrect Words</title>
+</head>
+<body>
+    <h1>Words that need work:</h1>
+    <ul>
+        {% for word in incorrect_words %}
+            <li>{{ word['spanish'] }} - {{ word['english'] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>
