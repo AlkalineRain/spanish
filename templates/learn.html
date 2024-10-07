@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Learn Spanish</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <h1>Translate the word</h1>
-    <p>What is the translation of: {{ spanish_word }}?</p>
-    <form method="POST">
-        <input type="hidden" name="spanish_word" value="{{ spanish_word }}">
-        <input type="text" name="translation" required>
-        <button type="submit">Submit</button>
-    </form>
-    {% if result %}
-        <p>{{ result }}</p>
-    {% endif %}
+    <div class="flash-card">
+        <p>What is the translation of: <strong>{{ spanish_word }}</strong>?</p>
+        <form method="POST">
+            <input type="hidden" name="spanish_word" value="{{ spanish_word }}">
+            <input type="text" name="translation" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if result %}
+            <p>{{ result }}</p>
+        {% endif %}
+    </div>
     <a href="{{ url_for('learn') }}">Next Word</a>
 </body>
 </html>
